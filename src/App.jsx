@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Header from "./components/header";
 import styles from "./App.module.css";
@@ -12,7 +12,7 @@ import { posts as initialPosts } from "./components/Data/posts (1)";
 function App() {
   // console.log('Pubblished posts:', pubblishedPosts);
   
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState([]); // stato per gestire l'array dei post
   
   // funzione per aggiungere un nuovo posts
   const addNewPost = (formData)  => {
@@ -29,7 +29,27 @@ function App() {
 
     setPosts([...posts, newPost]);
     
-  }
+  };
+
+  useEffect(() => {
+    // funzione per ottenere i dati dal backend 
+    const fetchPosts = async () => {
+      try {
+        // effetuo la richiesta get per ottenere i post
+        const response = await axios.get('http://localhost:3000/posts');
+        // aggiorno lo stato
+        setPosts(response.data.posts);
+        console.log('Posts recuperati:', response.data.posts);
+
+      } catch (error) {
+        console.error('Errore nel recuperare i post:', error); // Gestisco l'errore in caso di problemi
+      }
+    };
+
+      // chiamo la funzione 
+      fetchPosts(); 
+
+  }, []);
 
   const pubblishedPosts = posts.filter((post) => post.published); // filtro i post pubblicati
   const uniqueTags = getUniqueTags(posts)  //oottengo i tag distinti
