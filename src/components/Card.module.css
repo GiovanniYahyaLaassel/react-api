@@ -1,0 +1,30 @@
+/* contenitore dei tag */
+.tagsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.tag{
+    background-color: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+.card{
+    background-color: #f8eeee;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+    margin: 20px auto;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}

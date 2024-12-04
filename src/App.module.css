@@ -1,0 +1,48 @@
+/* stile sezione dei tag */
+.tagSection{
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid  #ddd;
+    border-radius: 8px;
+}
+
+/* contenitore della liista di tag */
+.tagList{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.tag{
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+/* contenitore delle card creo un layout a 3 colonne  */
+.cardsContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+/* creo un laoyout per i tablet con 2 colonne  */
+@media (max-width: 768px) {
+    .cardsContainer{
+    grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .cardsContainer{
+    grid-template-columns: 1fr; 
+    }
+}
+
